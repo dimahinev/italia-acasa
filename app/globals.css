@@ -4,9 +4,9 @@
   --font-recoleta: var(--font-recoleta);
   --font-rounds: var(--font-tt-rounds-neue);
 
-  --color-brand-black: #000000;
-  --color-brand-muted: #6e767a;
-  --color-brand-white: #ffffff;
+
+  --color-muted-dark: #6e767a;
+  --color-muted-light: #848484;
 
   --spacing-safe-x: 24px;
   --spacing-safe-y: 12px;
@@ -24,11 +24,14 @@
   --radius-card: 22px;
 }
 
-@utility mask-squircle {
-  mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0gNjQuOCAwIGMgMTIuMzIxMiAwIDE4LjQ4MTcgMCAyMy4xODc4IDIuMzk3OSBhIDIyLjAwMDAgMjIuMDAwMCAwIDAgMSA5LjYxNDQgOS42MTQ0IGMgMi4zOTc5IDQuNzA2MSAyLjM5NzkgMTAuODY2NiAyLjM5NzkgMjMuMTg3OCBMIDEwMCA2NC44IGMgMCAxMi4zMjEyIDAgMTguNDgxNyAtMi4zOTc5IDIzLjE4NzggYSAyMi4wMDAwIDIyLjAwMDAgMCAwIDEgLTkuNjE0NCA5LjYxNDQgYyAtNC43MDYxIDIuMzk3OSAtMTAuODY2NiAyLjM5NzkgLTIzLjE4NzggMi4zOTc5IEwgMzUuMiAxMDAgYyAtMTIuMzIxMiAwIC0xOC40ODE3IDAgLTIzLjE4NzggLTIuMzk3OSBhIDIyLjAwMDAgMjIuMDAwMCAwIDAgMSAtOS42MTQ0IC05LjYxNDQgYyAtMi4zOTc5IC00LjcwNjEgLTIuMzk3OSAtMTAuODY2NiAtMi4zOTc5IC0yMy4xODc4IEwgMCAzNS4yIGMgMCAtMTIuMzIxMiAwIC0xOC40ODE3IDIuMzk3OSAtMjMuMTg3OCBhIDIyLjAwMDAgMjIuMDAwMCAwIDAgMSA5LjYxNDQgLTkuNjE0NCBjIDQuNzA2MSAtMi4zOTc5IDEwLjg2NjYgLTIuMzk3OSAyMy4xODc4IC0yLjM5NzkgWiIvPjwvc3ZnPg==');
-  mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0gNjQuOCAwIGMgMTIuMzIxMiAwIDE4LjQ4MTcgMCAyMy4xODc4IDIuMzk3OSBhIDIyLjAwMDAgMjIuMDAwMCAwIDAgMSA5LjYxNDQgOS42MTQ0IGMgMi4zOTc5IDQuNzA2MSAyLjM5NzkgMTAuODY2NiAyLjM5NzkgMjMuMTg3OCBMIDEwMCA2NC44IGMgMCAxMi4zMjEyIDAgMTguNDgxNyAtMi4zOTc5IDIzLjE4NzggYSAyMi4wMDAwIDIyLjAwMDAgMCAwIDEgLTkuNjE0NCA5LjYxNDQgYyAtNC43MDYxIDIuMzk3OSAtMTAuODY2NiAyLjM5NzkgLTIzLjE4NzggMi4zOTc5IEwgMzUuMiAxMDAgYyAtMTIuMzIxMiAwIC0xOC40ODE3IDAgLTIzLjE4NzggLTIuMzk3OSBhIDIyLjAwMDAgMjIuMDAwMCAwIDAgMSAtOS42MTQ0IC05LjYxNDQgYyAtMi4zOTc5IC00LjcwNjEgLTIuMzk3OSAtMTAuODY2NiAtMi4zOTc5IC0yMy4xODc4IEwgMCAzNS4yIGMgMCAtMTIuMzIxMiAwIC0xOC40ODE3IDIuMzk3OSAtMjMuMTg3OCBhIDIyLjAwMDAgMjIuMDAwMCAwIDAgMSA5LjYxNDQgLTkuNjE0NCBjIDQuNzA2MSAtMi4zOTc5IDEwLjg2NjYgLTIuMzk3OSAyMy4xODc4IC0yLjM5NzkgWiIvPjwvc3ZnPg==');
-  -webkit-mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
+body {
+  line-height: 1.58;
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
 }

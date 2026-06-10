@@ -1,5 +1,7 @@
+import FeaturedCard from "@/shared/FeaturedCard";
+import HorizontalScroll from "@/shared/HorizontalScroll";
+import Spacer from "@/shared/ui/Spacer";
 import Sidebar from "@/widgets/Sidebar";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,16 +12,17 @@ export default function Home() {
         <Sidebar />
       </div>
       {/* HEADER END */}
-
+      <Spacer size={4} />
       {/* FEATURED PRODUCTS START */}
-      <div>
-        <Image
-          className="mask-squircle"
-          src="/img/test.jpg" alt="test" width={242} height={279} />
+      <HorizontalScroll gap={2}>
+        <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
+        <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
+        <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
+        <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
 
-
-      </div>
+      </HorizontalScroll>
       {/* FEATURED PRODUCTS END */}
+
     </div>
   );
 }

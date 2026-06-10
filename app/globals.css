@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+@theme {
+  --font-recoleta: var(--font-recoleta);
+  --font-rounds: var(--font-tt-rounds-neue);
+
+  --color-brand-black: #000000;
+  --color-brand-muted: #6e767a;
+  --color-brand-white: #ffffff;
+
+  --spacing-safe-x: 24px;
+  --spacing-safe-y: 12px;
+
+  --size-iphone-w: 399px;
+  --size-iphone-h: 852px;
+
+  --size-hero-w: 242px;
+  --size-hero-h: 279px;
+
+  --size-product-w: 163px;
+  --size-product-h: 172px;
+
+  --radius-iphone: 36px;
+  --radius-card: 22px;
+}

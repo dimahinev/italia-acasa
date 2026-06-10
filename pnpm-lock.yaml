@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@toolwind/corner-shape':
-        specifier: 0.0.8-3
-        version: 0.0.8-3
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -541,9 +538,6 @@ packages:
 
   '@tailwindcss/postcss@4.3.0':
     resolution: {integrity: sha512-Jm05Tjx+9yCLGv5qw1c+84Psds8MnyrEQYCB+FFk2lgGiUjlRqdxke4mVTuYrj2xnVZqKim2Apr5ySuQRYAw/w==}
-
-  '@toolwind/corner-shape@0.0.8-3':
-    resolution: {integrity: sha512-MPIF81F2bhtXbzEeXF0vnL+PKpnopCHOzBspOkK8osMzWQvPUujZn2XZOMdsu4DF6wsVbbRYQtdsJr486HmIPQ==}
 
   '@tybys/wasm-util@0.10.2':
     resolution: {integrity: sha512-RoBvJ2X0wuKlWFIjrwffGw1IqZHKQqzIchKaadZZfnNpsAYp2mM0h36JtPCjNDAHGgYez/15uMBpfGwchhiMgg==}
@@ -2425,10 +2419,6 @@ snapshots:
       '@tailwindcss/oxide': 4.3.0
       postcss: 8.5.15
       tailwindcss: 4.3.0
-
-  '@toolwind/corner-shape@0.0.8-3':
-    dependencies:
-      '@types/node': 20.19.42
 
   '@tybys/wasm-util@0.10.2':
     dependencies:

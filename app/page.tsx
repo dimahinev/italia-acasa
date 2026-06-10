@@ -14,7 +14,7 @@ export default function Home() {
       {/* FEATURED PRODUCTS START */}
       <div>
         <Image
-          className="rounded-card"
+          className="mask-squircle"
           src="/img/test.jpg" alt="test" width={242} height={279} />
 
 

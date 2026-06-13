@@ -6,6 +6,14 @@ const nextConfig: NextConfig = {
     },
     devIndicators: false,
     allowedDevOrigins: ['shudder-unturned-slapping.ngrok-free.dev', '*.ngrok-free.dev'],
+    async rewrites() {
+        return [
+            {
+                source: '/admin',
+                destination: '/admin/index.html',
+            },
+        ];
+    },
 };
 
 export default nextConfig;

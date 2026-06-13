@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { cn } from './lib/utils/cn';
 import { CardProps } from './types/cardProps';
 
-export default function FeaturedCard({ className, imgSrc, name, price }: CardProps) {
+export default function ProductCard({ className, imgSrc, name, price }: CardProps) {
     return (
-        <div className={cn('w-[240px]', className)}>
-            <div className="relative w-full h-[277px]">
+        <div className={cn('w-[162px]', className)}>
+            <div className="relative w-full h-[170px]">
                 <Image
                     className="object-cover object-[center_80%] rounded-card"
                     src={imgSrc}
@@ -15,9 +15,9 @@ export default function FeaturedCard({ className, imgSrc, name, price }: CardPro
                     priority
                 />
             </div>
-            <div className="flex justify-between mt-2 px-[5px]">
-                <span className="font-rounds text-17 font-bold">{name}</span>
-                <span className="font-rounds text-17 font-bold text-muted-dark">{price} MDL</span>
+            <div className="px-[5px] mt-1">
+                <p className="font-rounds text-15 font-semibold">{name}</p>
+                <p className="font-rounds text-15 font-semibold text-muted-dark">{price} MDL</p>
             </div>
         </div>
     );

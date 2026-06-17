@@ -27,18 +27,16 @@ export function AddToCartButton({ itemId, name, price, className }: Props) {
                     <div className="w-full flex items-center justify-between bg-black text-white rounded-2xl overflow-hidden h-14">
                         <button
                             onClick={() => decrementItem(itemId)}
-                            className="flex-1 h-full flex items-center justify-center font-rounds font-semibold text-lg hover:bg-white/10 active:bg-white/20 transition-colors cursor-pointer select-none"
+                            className="flex-1 h-full flex items-center justify-center font-rounds font-semibold text-lg hover:bg-neutral-900 active:bg-neutral-850 transition-colors cursor-pointer select-none text-white"
                         >
                             —
                         </button>
-                        <div className="w-px h-6 bg-white" />
-                        <span className="flex-1 text-center font-rounds font-semibold text-lg select-none">
+                        <div className="flex-1 h-full bg-white text-black flex items-center justify-center font-rounds font-semibold text-lg border-y border-x border-[#E5E7EB] select-none">
                             {quantity}
-                        </span>
-                        <div className="w-px h-6 bg-white" />
+                        </div>
                         <button
                             onClick={() => addItem({ id: itemId, name, price, quantity: 1 })}
-                            className="flex-1 h-full flex items-center justify-center font-rounds font-semibold text-lg hover:bg-white/10 active:bg-white/20 transition-colors cursor-pointer select-none"
+                            className="flex-1 h-full flex items-center justify-center font-rounds font-semibold text-lg hover:bg-neutral-900 active:bg-neutral-850 transition-colors cursor-pointer select-none text-white"
                         >
                             +
                         </button>

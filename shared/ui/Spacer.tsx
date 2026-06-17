@@ -6,10 +6,12 @@ interface SpacerProps {
 }
 
 export default function Spacer({ size, className }: SpacerProps) {
+    const MULTIPLIER = 1;
+
     return (
         <div
             className={cn('shrink-0', className)}
-            style={{ height: `${size * 4}px`, width: `${size * 4}px` }}
+            style={{ height: `${size * MULTIPLIER}px`, width: `${size * MULTIPLIER}px` }}
             aria-hidden="true"
         />
     );

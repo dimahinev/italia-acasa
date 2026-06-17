@@ -8,12 +8,12 @@ interface HorizontalScrollProps {
 }
 
 export default function HorizontalScroll({ className, gap, children }: HorizontalScrollProps) {
-    const gapValue = gap !== undefined ? `${gap * 4}px` : undefined;
+    const MULTIPLIER = 1;
+    const gapValue = gap !== undefined ? `${gap * MULTIPLIER}px` : undefined;
 
     return (
         <div
             className={cn(
-                // [&>*]:shrink-0 заменяет логику Children.map
                 'flex overflow-x-auto no-scrollbar w-auto -mx-6 px-6 *:shrink-0',
                 className,
             )}

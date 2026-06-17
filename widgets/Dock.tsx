@@ -1,11 +1,21 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Home, Search, ShoppingCart, Share } from 'lucide-react';
 import { cn } from '@/shared/lib/utils/cn';
 import Link from 'next/link';
 import { shareLink } from '@/shared/lib/utils/shareLink';
+import { useCartStore } from '@/features/cart/model/cartStore';
 
 export default function Dock({ className }: { className?: string }) {
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const items = useCartStore((state) => state.items);
+    const itemCount = mounted ? items.reduce((sum, item) => sum + item.quantity, 0) : 0;
+
     const dockItems = {
         home: {
             icon: Home,
@@ -48,8 +58,13 @@ export default function Dock({ className }: { className?: string }) {
                     <dockItems.search.icon />
                 </button>
 
-                <button className={iconBtnClasses}>
+                <button className={cn(iconBtnClasses, 'relative')}>
                     <dockItems.cart.icon />
+                    {itemCount > 0 && (
+                        <span className="absolute top-0.5 right-0.5 bg-red-500 text-white rounded-full text-[10px] w-4 h-4 flex items-center justify-center font-bold">
+                            {itemCount}
+                        </span>
+                    )}
                 </button>
                 <button className={iconBtnClasses} onClick={shareLink}>
                     <dockItems.share.icon />

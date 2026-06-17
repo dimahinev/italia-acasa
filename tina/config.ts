@@ -49,7 +49,6 @@ export default defineConfig({
                         label: 'Product Name',
                         isTitle: true,
                         required: true,
-                        description: 'Название продукта (используется для отображения в админке)',
                     },
                     {
                         type: 'string',

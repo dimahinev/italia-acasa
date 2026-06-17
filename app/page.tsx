@@ -7,7 +7,7 @@ import Sidebar from '@/widgets/Sidebar';
 
 export default function HomePage() {
     return (
-        <div className="py-3">
+        <div className="pt-3 pb-32">
             {/* HEADER START */}
             <div className="flex justify-between">
                 <h1 className="text-[32px] font-recoleta font-medium">Produse Italiene</h1>
@@ -15,10 +15,10 @@ export default function HomePage() {
             </div>
             {/* HEADER END */}
 
-            <Spacer size={4} />
+            <Spacer size={16} />
 
             {/* FEATURED PRODUCTS START */}
-            <HorizontalScroll gap={8}>
+            <HorizontalScroll gap={32}>
                 <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
@@ -26,10 +26,10 @@ export default function HomePage() {
             </HorizontalScroll>
             {/* FEATURED PRODUCTS END */}
 
-            <Spacer size={9.5} />
+            <Spacer size={38} />
 
             <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Paste de dinți</h2>
-            <HorizontalScroll gap={4}>
+            <HorizontalScroll gap={16}>
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
@@ -37,10 +37,10 @@ export default function HomePage() {
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
             </HorizontalScroll>
 
-            <Spacer size={18} />
+            <Spacer size={72} />
 
             <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Șampoane</h2>
-            <HorizontalScroll gap={4}>
+            <HorizontalScroll gap={16}>
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
@@ -48,10 +48,10 @@ export default function HomePage() {
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
             </HorizontalScroll>
 
-            <Spacer size={18} />
+            <Spacer size={72} />
 
             <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Balsamuri de păr</h2>
-            <HorizontalScroll gap={4}>
+            <HorizontalScroll gap={16}>
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
@@ -59,10 +59,10 @@ export default function HomePage() {
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
             </HorizontalScroll>
 
-            <Spacer size={18} />
+            <Spacer size={72} />
 
             <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Măști</h2>
-            <HorizontalScroll gap={4}>
+            <HorizontalScroll gap={16}>
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
                 <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />

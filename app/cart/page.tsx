@@ -111,76 +111,79 @@ export default function CartPage() {
 
             <Spacer size={24} className="shrink-0" />
 
-            <div className="flex-1 overflow-y-auto flex flex-col gap-6 pr-1 no-scrollbar">
-                {items.map((item) => (
-                    <div key={item.id} className="flex gap-4 items-center justify-between">
-                        <div className="flex gap-4 items-center flex-1">
-                            {item.image ? (
-                                <div className="relative w-[77px] h-[81px] shrink-0">
-                                    <Image
-                                        src={item.image}
-                                        alt={item.name}
-                                        fill
-                                        sizes="80px"
-                                        className="object-cover rounded-card"
-                                    />
-                                </div>
-                            ) : (
-                                <div className="w-[77px] h-[81px] bg-neutral-100 rounded-card flex items-center justify-center text-neutral-450 font-rounds font-bold text-lg shrink-0 select-none">
-                                    {item.name[0]}
-                                </div>
-                            )}
-
-                            <div className="flex flex-col gap-2 min-w-0">
-                                <span className="font-rounds font-semibold text-[15px] text-black truncate pr-2">
-                                    {item.name}
-                                </span>
-
-                                <div className="flex items-center h-[32px] rounded-xl border border-muted-light overflow-hidden w-[130px] shrink-0">
-                                    <button
-                                        type="button"
-                                        onClick={() => decrementItem(item.id)}
-                                        className="w-[42px] h-full flex items-center justify-center text-muted-light font-rounds hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer select-none text-[17px] font-medium"
-                                    >
-                                        –
-                                    </button>
-                                    <div className="flex-1 h-full border-x border-muted-light flex items-center justify-center font-rounds text-[15px] text-muted-light select-none">
-                                        {item.quantity}
+            <div className="relative flex-1 min-h-0">
+                <div className="h-full overflow-y-auto flex flex-col gap-6 pr-1 pb-8 no-scrollbar">
+                    {items.map((item) => (
+                        <div key={item.id} className="flex gap-4 items-center justify-between">
+                            <div className="flex gap-4 items-center flex-1 min-w-0">
+                                {item.image ? (
+                                    <div className="relative w-[77px] h-[81px] shrink-0">
+                                        <Image
+                                            src={item.image}
+                                            alt={item.name}
+                                            fill
+                                            sizes="80px"
+                                            className="object-cover rounded-card"
+                                        />
                                     </div>
-                                    <button
-                                        type="button"
-                                        onClick={() => addItem({ ...item, quantity: 1 })}
-                                        className="w-[42px] h-full flex items-center justify-center text-muted-light font-rounds hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer select-none text-[17px] font-medium"
-                                    >
-                                        +
-                                    </button>
+                                ) : (
+                                    <div className="w-[77px] h-[81px] bg-neutral-100 rounded-card flex items-center justify-center text-neutral-450 font-rounds font-bold text-lg shrink-0 select-none">
+                                        {item.name[0]}
+                                    </div>
+                                )}
+
+                                <div className="flex flex-col gap-2 min-w-0">
+                                    <span className="font-rounds font-semibold text-[15px] text-black truncate pr-2">
+                                        {item.name}
+                                    </span>
+
+                                    <div className="flex items-center h-[32px] rounded-xl border border-muted-light overflow-hidden w-[130px] shrink-0">
+                                        <button
+                                            type="button"
+                                            onClick={() => decrementItem(item.id)}
+                                            className="w-[42px] h-full flex items-center justify-center text-muted-light font-rounds hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer select-none text-[17px] font-medium"
+                                        >
+                                            –
+                                        </button>
+                                        <div className="flex-1 h-full border-x border-muted-light flex items-center justify-center font-rounds text-[15px] text-muted-light select-none">
+                                            {item.quantity}
+                                        </div>
+                                        <button
+                                            type="button"
+                                            onClick={() => addItem({ ...item, quantity: 1 })}
+                                            className="w-[42px] h-full flex items-center justify-center text-muted-light font-rounds hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer select-none text-[17px] font-medium"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="flex flex-col items-end justify-between h-[81px] py-1 shrink-0">
-                            <button
-                                type="button"
-                                onClick={() => removeItem(item.id)}
-                                className="w-8 h-8 rounded-full border border-muted-light flex items-center justify-center text-muted-light hover:bg-neutral-50 hover:text-black transition-colors cursor-pointer"
-                            >
-                                <X className="w-4 h-4 text-muted-light" />
-                            </button>
-                            <span className="font-rounds font-semibold text-[15px] text-black text-right whitespace-nowrap">
-                                {item.price * item.quantity} {currency}
-                            </span>
+                            <div className="flex flex-col items-end justify-between h-[81px] py-1 shrink-0">
+                                <button
+                                    type="button"
+                                    onClick={() => removeItem(item.id)}
+                                    className="w-8 h-8 rounded-full border border-muted-light flex items-center justify-center text-muted-light hover:bg-neutral-50 hover:text-black transition-colors cursor-pointer"
+                                >
+                                    <X className="w-4 h-4 text-muted-light" />
+                                </button>
+                                <span className="font-rounds font-semibold text-[15px] text-black text-right whitespace-nowrap">
+                                    {item.price * item.quantity} {currency}
+                                </span>
+                            </div>
                         </div>
+                    ))}
+                    <div className="flex flex-col items-end gap-1 py-4 font-rounds font-bold text-muted-light text-[15px] uppercase shrink-0  mt-4">
+                        <span>=</span>
+                        <span className="text-[15px]">
+                            {total} {currency}
+                        </span>
                     </div>
-                ))}
-                <div className="flex flex-col items-end gap-1 py-4 font-rounds font-bold text-muted-light text-[15px] uppercase shrink-0  mt-4">
-                    <span>=</span>
-                    <span className="text-[15px]">
-                        {total} {currency}
-                    </span>
                 </div>
+                <div className="absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-white to-transparent pointer-events-none z-10" />
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-2 shrink-0 bg-white">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2 shrink-0 bg-white pt-4">
                 <Input
                     id="name-input"
                     label="Nume"

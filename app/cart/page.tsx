@@ -42,7 +42,7 @@ export default function CartPage() {
         return null;
     }
 
-    if (!isSuccess) {
+    if (isSuccess) {
         return <SuccessScreen />;
     }
 

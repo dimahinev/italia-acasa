@@ -8,6 +8,7 @@ import { useCartStore } from '@/features/cart/model/cartStore';
 import { useCheckout } from '@/features/cart/model/useCheckout';
 import { Input } from '@/shared/ui/Input';
 import Spacer from '@/shared/ui/Spacer';
+import { SuccessScreen } from '@/features/cart/ui/SuccessScreen';
 
 export default function CartPage() {
     const [mounted, setMounted] = useState(false);
@@ -41,35 +42,8 @@ export default function CartPage() {
         return null;
     }
 
-    if (isSuccess) {
-        return (
-            <div className="flex flex-col items-center justify-center min-h-[70vh] text-center px-6 py-12">
-                <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6 shadow-md">
-                    <svg
-                        className="w-8 h-8"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={3}
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                </div>
-                <h1 className="text-2xl font-recoleta font-medium mb-3">
-                    Comandă plasată cu succes!
-                </h1>
-                <p className="text-muted-dark font-rounds max-w-sm mb-8 leading-relaxed text-sm">
-                    Vă mulțumim pentru cumpărături. Vă vom contacta în curând pentru confirmarea
-                    comenzii.
-                </p>
-                <Link
-                    href="/"
-                    className="w-full max-w-[359px] h-12 flex items-center justify-center bg-black text-white rounded-[16px] font-rounds font-semibold text-base hover:bg-neutral-900 active:scale-[0.98] transition-all"
-                >
-                    Înapoi la cumpărături
-                </Link>
-            </div>
-        );
+    if (!isSuccess) {
+        return <SuccessScreen />;
     }
 
     if (items.length === 0) {

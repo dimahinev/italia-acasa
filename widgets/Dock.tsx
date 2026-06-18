@@ -40,7 +40,7 @@ export default function Dock({ className }: { className?: string }) {
     };
 
     const iconBtnClasses =
-        'p-3.5 cursor-pointer rounded-2xl hover:bg-black hover:text-white transition-all active:text-white active:bg-black [&>svg]:w-[22px] [&>svg]:h-[22px]';
+        'p-3.5 active:scale-[0.94] transition-all cursor-pointer rounded-2xl hover:bg-black hover:text-white transition-all active:text-white active:bg-black [&>svg]:w-[22px] [&>svg]:h-[22px]';
 
     return (
         <div className={cn('fixed bottom-0 left-0 right-0 z-50 pointer-events-none', className)}>
@@ -49,7 +49,7 @@ export default function Dock({ className }: { className?: string }) {
             <div className="bg-white pb-4 pt-6 px-6 flex justify-between pointer-events-auto">
                 <Link
                     href="/"
-                    className="py-3 px-8 cursor-pointer select-none flex flex-nowrap items-center gap-2.5 bg-black text-white rounded-2xl transition-transform"
+                    className="py-3 px-8 active:scale-[0.98] cursor-pointer select-none flex flex-nowrap items-center gap-2.5 bg-black text-white rounded-2xl transition-transform"
                 >
                     <dockItems.home.icon className="w-[22px] h-[22px]" />
                     <span className="font-rounds font-semibold">{dockItems.home.label}</span>

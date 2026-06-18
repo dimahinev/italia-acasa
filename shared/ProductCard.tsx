@@ -17,8 +17,10 @@ export default function ProductCard({ className, imgSrc, name, price, slug }: Ca
                 />
             </div>
             <div className="px-[5px] mt-1">
-                <p className="font-rounds text-15 font-semibold">{name}</p>
-                <p className="font-rounds text-15 font-semibold text-muted-dark">{price} MDL</p>
+                <p className="font-rounds text-15 font-semibold leading-[120%]">{name}</p>
+                <p className="font-rounds mt-1 text-15 font-semibold text-muted-dark whitespace-nowrap">
+                    {price} MDL
+                </p>
             </div>
         </div>
     );

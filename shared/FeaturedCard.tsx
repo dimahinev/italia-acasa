@@ -17,8 +17,12 @@ export default function FeaturedCard({ className, imgSrc, name, price, slug }: C
                 />
             </div>
             <div className="flex justify-between mt-2 px-[5px]">
-                <span className="font-rounds text-17 font-bold">{name}</span>
-                <span className="font-rounds text-17 font-bold text-muted-dark">{price} MDL</span>
+                <span className="font-rounds text-17 font-bold leading-[120%] max-w-[140px]">
+                    {name}
+                </span>
+                <span className="font-rounds text-17 font-bold text-muted-dark whitespace-nowrap">
+                    {price} MDL
+                </span>
             </div>
         </div>
     );

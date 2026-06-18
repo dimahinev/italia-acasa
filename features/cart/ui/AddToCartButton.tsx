@@ -5,10 +5,11 @@ interface Props {
     itemId: string;
     name: string;
     price: number;
+    image?: string;
     className?: string;
 }
 
-export function AddToCartButton({ itemId, name, price, className }: Props) {
+export function AddToCartButton({ itemId, name, price, image, className }: Props) {
     const items = useCartStore((state) => state.items);
     const addItem = useCartStore((state) => state.addItem);
     const decrementItem = useCartStore((state) => state.decrementItem);
@@ -35,7 +36,7 @@ export function AddToCartButton({ itemId, name, price, className }: Props) {
                             {quantity}
                         </div>
                         <button
-                            onClick={() => addItem({ id: itemId, name, price, quantity: 1 })}
+                            onClick={() => addItem({ id: itemId, name, price, quantity: 1, image })}
                             className="flex-1 h-full flex items-center justify-center font-rounds font-semibold text-lg hover:bg-neutral-900 active:bg-neutral-850 transition-colors cursor-pointer select-none text-white"
                         >
                             +
@@ -52,7 +53,7 @@ export function AddToCartButton({ itemId, name, price, className }: Props) {
 
             <div className="bg-white pb-4 pt-6 px-6 pointer-events-auto">
                 <button
-                    onClick={() => addItem({ id: itemId, name, price, quantity: 1 })}
+                    onClick={() => addItem({ id: itemId, name, price, quantity: 1, image })}
                     className="w-full h-14 cursor-pointer select-none flex items-center justify-center bg-black text-white rounded-2xl transition-transform active:scale-[0.98]"
                 >
                     <span className="font-rounds font-semibold text-base">Adaugă în coș</span>

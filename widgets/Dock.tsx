@@ -10,6 +10,7 @@ import { useCartStore } from '@/features/cart/model/cartStore';
 export default function Dock({ className }: { className?: string }) {
     const [mounted, setMounted] = useState(false);
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -58,14 +59,14 @@ export default function Dock({ className }: { className?: string }) {
                     <dockItems.search.icon />
                 </button>
 
-                <button className={cn(iconBtnClasses, 'relative')}>
+                <Link href="/cart" className={cn(iconBtnClasses, 'relative')}>
                     <dockItems.cart.icon />
                     {itemCount > 0 && (
                         <span className="absolute top-0.5 right-0.5 bg-red-500 text-white rounded-full text-[10px] w-4 h-4 flex items-center justify-center font-bold">
                             {itemCount}
                         </span>
                     )}
-                </button>
+                </Link>
                 <button className={iconBtnClasses} onClick={shareLink}>
                     <dockItems.share.icon />
                 </button>

@@ -8,7 +8,6 @@ import HorizontalScroll from '@/shared/HorizontalScroll';
 import Spacer from '@/shared/ui/Spacer';
 import { useCurrencyStore } from '@/features/currency/model/currencyStore';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
-import { useCartStore } from '@/features/cart/model/cartStore';
 import { AddToCartButton } from '@/features/cart/ui/AddToCartButton';
 
 export function ProductPageClient(props: {
@@ -22,9 +21,6 @@ export function ProductPageClient(props: {
         data: props.data,
     });
     const { currency } = useCurrencyStore();
-    const { items, addItem, removeItem, clearCart } = useCartStore();
-    console.log('data', data);
-    console.log('props', props);
 
     const product = data.product;
 
@@ -84,6 +80,7 @@ export function ProductPageClient(props: {
                 itemId={product._sys.filename}
                 name={product.title}
                 price={product.price}
+                image={product.images?.[0] || undefined}
             />
         </div>
     );

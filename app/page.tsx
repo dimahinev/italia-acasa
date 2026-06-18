@@ -4,8 +4,21 @@ import ProductCard from '@/shared/ProductCard';
 import Spacer from '@/shared/ui/Spacer';
 import Dock from '@/widgets/Dock';
 import Sidebar from '@/widgets/Sidebar';
+import { client } from '@/tina/__generated__/client';
 
-export default function HomePage() {
+export default async function HomePage() {
+    const productsResponse = await client.queries.productConnection();
+    const products = (productsResponse.data.productConnection.edges
+        ?.map((edge) => edge?.node)
+        .filter((node): node is NonNullable<typeof node> => !!node)) || [];
+
+    const toothpastes = products.filter((p) => p.category === 'toothpaste');
+    const shampoos = products.filter((p) => p.category === 'shampoo');
+    const sprays = products.filter((p) => p.category === 'spray');
+    const masks = products.filter((p) => p.category === 'mask');
+
+    const featuredProducts = products.slice(0, 4);
+
     return (
         <div className="pt-3 pb-32">
             {/* HEADER START */}
@@ -18,57 +31,95 @@ export default function HomePage() {
             <Spacer size={16} />
 
             {/* FEATURED PRODUCTS START */}
-            <HorizontalScroll gap={32}>
-                <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <FeaturedCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-            </HorizontalScroll>
+            {featuredProducts.length > 0 && (
+                <>
+                    <HorizontalScroll gap={32}>
+                        {featuredProducts.map((product) => (
+                            <FeaturedCard
+                                key={product.id}
+                                imgSrc={product.images?.[0] || '/img/test.jpg'}
+                                name={product.title}
+                                price={product.price}
+                                slug={product._sys.filename}
+                            />
+                        ))}
+                    </HorizontalScroll>
+                    <Spacer size={38} />
+                </>
+            )}
             {/* FEATURED PRODUCTS END */}
 
-            <Spacer size={38} />
+            {toothpastes.length > 0 && (
+                <>
+                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Paste de dinți</h2>
+                    <HorizontalScroll gap={16}>
+                        {toothpastes.map((product) => (
+                            <ProductCard
+                                key={product.id}
+                                imgSrc={product.images?.[0] || '/img/test.jpg'}
+                                name={product.title}
+                                price={product.price}
+                                slug={product._sys.filename}
+                            />
+                        ))}
+                    </HorizontalScroll>
+                    <Spacer size={72} />
+                </>
+            )}
 
-            <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Paste de dinți</h2>
-            <HorizontalScroll gap={16}>
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-            </HorizontalScroll>
+            {shampoos.length > 0 && (
+                <>
+                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Șampoane</h2>
+                    <HorizontalScroll gap={16}>
+                        {shampoos.map((product) => (
+                            <ProductCard
+                                key={product.id}
+                                imgSrc={product.images?.[0] || '/img/test.jpg'}
+                                name={product.title}
+                                price={product.price}
+                                slug={product._sys.filename}
+                            />
+                        ))}
+                    </HorizontalScroll>
+                    <Spacer size={72} />
+                </>
+            )}
 
-            <Spacer size={72} />
+            {sprays.length > 0 && (
+                <>
+                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Balsamuri de păr</h2>
+                    <HorizontalScroll gap={16}>
+                        {sprays.map((product) => (
+                            <ProductCard
+                                key={product.id}
+                                imgSrc={product.images?.[0] || '/img/test.jpg'}
+                                name={product.title}
+                                price={product.price}
+                                slug={product._sys.filename}
+                            />
+                        ))}
+                    </HorizontalScroll>
+                    <Spacer size={72} />
+                </>
+            )}
 
-            <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Șampoane</h2>
-            <HorizontalScroll gap={16}>
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-            </HorizontalScroll>
-
-            <Spacer size={72} />
-
-            <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Balsamuri de păr</h2>
-            <HorizontalScroll gap={16}>
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-            </HorizontalScroll>
-
-            <Spacer size={72} />
-
-            <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Măști</h2>
-            <HorizontalScroll gap={16}>
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-                <ProductCard imgSrc="/img/test.jpg" name="Biorepair Pro White" price={65} />
-            </HorizontalScroll>
+            {masks.length > 0 && (
+                <>
+                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Măști</h2>
+                    <HorizontalScroll gap={16}>
+                        {masks.map((product) => (
+                            <ProductCard
+                                key={product.id}
+                                imgSrc={product.images?.[0] || '/img/test.jpg'}
+                                name={product.title}
+                                price={product.price}
+                                slug={product._sys.filename}
+                            />
+                        ))}
+                    </HorizontalScroll>
+                    <Spacer size={72} />
+                </>
+            )}
 
             <Dock />
         </div>

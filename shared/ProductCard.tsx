@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { cn } from './lib/utils/cn';
 import { CardProps } from './types/cardProps';
 
-export default function ProductCard({ className, imgSrc, name, price }: CardProps) {
-    return (
-        <div className={cn('w-[162px]', className)}>
+export default function ProductCard({ className, imgSrc, name, price, slug }: CardProps) {
+    const cardContent = (
+        <div className={cn('w-[162px] cursor-pointer', className)}>
             <div className="relative w-full h-[170px]">
                 <Image
                     className="object-cover object-[center_80%] rounded-card"
@@ -21,4 +22,10 @@ export default function ProductCard({ className, imgSrc, name, price }: CardProp
             </div>
         </div>
     );
+
+    if (slug) {
+        return <Link href={`/products/${slug}`}>{cardContent}</Link>;
+    }
+
+    return cardContent;
 }

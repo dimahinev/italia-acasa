@@ -64,17 +64,16 @@ export function ProductPageClient(props: {
 
             <Spacer size={42} />
 
-            <TinaMarkdown
-                content={product.description}
-                components={{
-                    h1: (props: any) => <h1 className="" {...props} />,
-                    li: (props: any) => <li className="list-disc ml-8 mb-6" {...props} />,
-                    p: (props: any) => <p className="mb-6" {...props} />,
-                    text: (props: any) => (
-                        <text className="font-rounds text-[#3E4B55] font-semibold" {...props} />
-                    ),
-                }}
-            />
+            <div className="font-rounds text-[#3E4B55] font-semibold">
+                <TinaMarkdown
+                    content={product.description}
+                    components={{
+                        h1: (props: any) => <h1 className="" {...props} />,
+                        li: (props: any) => <li className="list-disc ml-8 mb-6" {...props} />,
+                        p: (props: any) => <p className="mb-6" {...props} />,
+                    }}
+                />
+            </div>
 
             <AddToCartButton
                 itemId={product._sys.filename}

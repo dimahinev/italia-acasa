@@ -21,14 +21,14 @@ export default function Sidebar() {
             </button>
 
             <div
-                className={`fixed inset-0 bg-black/40 backdrop-blur-[5px] z-40 transition-opacity duration-300 ${
+                className={`fixed inset-0 bg-black/40 backdrop-blur-[5px] z-20 transition-opacity duration-300 ${
                     isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}
                 onClick={() => setIsOpen(false)}
             />
 
             <div
-                className={`fixed top-0 right-0 h-full w-[334px] bg-white rounded-l-[26px] z-50 shadow-2xl transition-transform duration-300 ease-out transform ${
+                className={`fixed top-0 right-0 h-full w-[334px] bg-white rounded-l-[26px] z-30 shadow-2xl transition-transform duration-300 ease-out transform ${
                     isOpen ? 'translate-x-0' : 'translate-x-full'
                 }`}
             >

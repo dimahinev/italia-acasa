@@ -43,7 +43,7 @@ export default function Dock({ className }: { className?: string }) {
         'p-3.5 active:scale-[0.94] transition-all cursor-pointer rounded-2xl hover:bg-black hover:text-white transition-all active:text-white active:bg-black [&>svg]:w-[22px] [&>svg]:h-[22px]';
 
     return (
-        <div className={cn('fixed bottom-0 left-0 right-0 z-50 pointer-events-none', className)}>
+        <div className={cn('fixed bottom-0 left-0 right-0 z-10 pointer-events-none', className)}>
             <div className="h-6 bg-linear-to-t from-white to-transparent" />
 
             <div className="bg-white pb-4 pt-6 px-6 flex justify-between pointer-events-auto">

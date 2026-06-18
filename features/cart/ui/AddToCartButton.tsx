@@ -20,7 +20,7 @@ export function AddToCartButton({ itemId, name, price, image, className }: Props
     if (quantity > 0) {
         return (
             <div
-                className={cn('fixed bottom-0 left-0 right-0 z-50 pointer-events-none', className)}
+                className={cn('fixed bottom-0 left-0 right-0 z-10 pointer-events-none', className)}
             >
                 <div className="h-6 bg-linear-to-t from-white to-transparent" />
 
@@ -48,7 +48,7 @@ export function AddToCartButton({ itemId, name, price, image, className }: Props
     }
 
     return (
-        <div className={cn('fixed bottom-0 left-0 right-0 z-50 pointer-events-none', className)}>
+        <div className={cn('fixed bottom-0 left-0 right-0 z-10 pointer-events-none', className)}>
             <div className="h-6 bg-linear-to-t from-white to-transparent" />
 
             <div className="bg-white pb-4 pt-6 px-6 pointer-events-auto">

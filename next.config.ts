@@ -1,4 +1,12 @@
 import type { NextConfig } from 'next';
+import { startWatcher } from './scripts/watcher';
+
+if (process.env.NODE_ENV === 'development') {
+    if (!(globalThis as any).__productWatcherStarted) {
+        (globalThis as any).__productWatcherStarted = true;
+        startWatcher();
+    }
+}
 
 const nextConfig: NextConfig = {
     images: {

@@ -8,16 +8,17 @@ import { client } from '@/tina/__generated__/client';
 
 export default async function HomePage() {
     const productsResponse = await client.queries.productConnection();
-    const products = (productsResponse.data.productConnection.edges
-        ?.map((edge) => edge?.node)
-        .filter((node): node is NonNullable<typeof node> => !!node)) || [];
+    const products =
+        productsResponse.data.productConnection.edges
+            ?.map((edge) => edge?.node)
+            .filter((node): node is NonNullable<typeof node> => !!node) || [];
 
     const toothpastes = products.filter((p) => p.category === 'toothpaste');
     const shampoos = products.filter((p) => p.category === 'shampoo');
     const sprays = products.filter((p) => p.category === 'spray');
     const masks = products.filter((p) => p.category === 'mask');
 
-    const featuredProducts = products.slice(0, 4);
+    const featuredProducts = products.filter((p) => p.featured);
 
     return (
         <div className="pt-3 pb-32">
@@ -87,7 +88,9 @@ export default async function HomePage() {
 
             {sprays.length > 0 && (
                 <>
-                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Balsamuri de păr</h2>
+                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">
+                        Balsamuri de păr
+                    </h2>
                     <HorizontalScroll gap={16}>
                         {sprays.map((product) => (
                             <ProductCard

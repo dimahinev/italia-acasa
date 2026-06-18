@@ -75,6 +75,11 @@ export default defineConfig({
                         list: true,
                     },
                     {
+                        type: 'boolean',
+                        name: 'featured',
+                        label: 'Featured Product',
+                    },
+                    {
                         type: 'rich-text',
                         name: 'description',
                         label: 'Description',

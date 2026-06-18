@@ -14,7 +14,7 @@ export default function HorizontalScroll({ className, gap, children }: Horizonta
     return (
         <div
             className={cn(
-                'flex overflow-x-auto no-scrollbar w-auto -mx-6 px-6 *:shrink-0',
+                'flex overflow-x-auto overflow-y-hidden no-scrollbar w-auto -mx-6 px-6 *:shrink-0',
                 className,
             )}
             style={{

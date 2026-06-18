@@ -38,3 +38,22 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
+
+/* Drawer backdrop animation */
+.drawer-backdrop {
+    transition: opacity 0.2s ease-out;
+}
+.drawer-backdrop[data-starting-style],
+.drawer-backdrop[data-ending-style] {
+    opacity: 0 !important;
+}
+
+/* Drawer popup animation */
+.drawer-popup {
+    transition: transform 0.3s cubic-bezier(0.32, 0.94, 0.6, 1);
+}
+.drawer-popup[data-starting-style],
+.drawer-popup[data-ending-style] {
+    transform: translateY(100%) !important;
+}
+

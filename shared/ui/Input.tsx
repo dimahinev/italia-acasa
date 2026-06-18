@@ -27,7 +27,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                         error
                             ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                             : 'border-muted-light focus:border-black focus:ring-1 focus:ring-black'
-                    } focus:outline-none transition-all font-rounds placeholder:font-rounds text-[15px] text-black ${className}`}
+                    } focus:outline-none transition-all font-rounds font-bold placeholder:text-muted-light/50 placeholder:font-rounds placeholder:font-bold text-[17px] placeholder:text-[15px] text-black ${className}`}
                     {...props}
                 />
                 {error && <span className="text-red-500 text-xs font-rounds mt-1">{error}</span>}

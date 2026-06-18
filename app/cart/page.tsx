@@ -67,97 +67,111 @@ export default function CartPage() {
     }
 
     return (
-        <div className="pt-4 pb-4 max-w-[600px] mx-auto flex flex-col h-dvh">
-            <div className="flex items-center shrink-0">
-                <Link
-                    href="/"
-                    className="rounded-2xl p-1 -ml-1 text-black hover:bg-neutral-105 active:bg-neutral-100 transition-colors"
-                >
-                    <ChevronLeft className="w-6 h-6" />
-                </Link>
-            </div>
+        <div className="pt-4 pb-4 max-w-[600px] md:max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-16 w-full h-dvh md:h-auto md:py-10">
+            <div className="flex flex-col flex-1 min-h-0 md:min-h-auto md:overflow-visible">
+                <div className="flex items-center shrink-0">
+                    <Link
+                        href="/"
+                        className="rounded-2xl p-1 -ml-1 text-black hover:bg-neutral-105 active:bg-neutral-100 transition-colors"
+                    >
+                        <ChevronLeft className="w-6 h-6" />
+                    </Link>
+                </div>
 
-            <Spacer size={20} className="shrink-0" />
+                <Spacer size={20} className="shrink-0" />
 
-            <h1 className="text-[32px] font-recoleta font-medium text-black shrink-0">
-                Finalizare comandă
-            </h1>
+                <h1 className="text-[32px] md:text-[38px] font-recoleta font-medium text-black shrink-0">
+                    Finalizare comandă
+                </h1>
 
-            <Spacer size={24} className="shrink-0" />
+                <Spacer size={24} className="shrink-0" />
 
-            <div className="relative flex-1 min-h-0">
-                <div className="h-full overflow-y-auto flex flex-col gap-6 pr-1 pb-8 no-scrollbar">
-                    {items.map((item) => (
-                        <div key={item.id} className="flex gap-4 items-center justify-between">
-                            <div className="flex gap-4 items-center flex-1 min-w-0">
-                                {item.image ? (
-                                    <div className="relative w-[77px] h-[81px] shrink-0">
-                                        <Image
-                                            src={item.image}
-                                            alt={item.name}
-                                            fill
-                                            sizes="80px"
-                                            className="object-cover rounded-card"
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="w-[77px] h-[81px] bg-neutral-100 rounded-card flex items-center justify-center text-neutral-450 font-rounds font-bold text-lg shrink-0 select-none">
-                                        {item.name[0]}
-                                    </div>
-                                )}
-
-                                <div className="flex flex-col gap-2 min-w-0">
-                                    <span className="font-rounds font-semibold text-[15px] text-black truncate pr-2">
-                                        {item.name}
-                                    </span>
-
-                                    <div className="flex items-center h-[32px] rounded-xl border border-muted-light overflow-hidden w-[130px] shrink-0">
-                                        <button
-                                            type="button"
-                                            onClick={() => decrementItem(item.id)}
-                                            className="w-[42px] h-full flex items-center justify-center text-muted-light font-rounds hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer select-none text-[17px] font-medium"
-                                        >
-                                            –
-                                        </button>
-                                        <div className="flex-1 h-full border-x border-muted-light flex items-center justify-center font-rounds text-[15px] text-muted-light select-none">
-                                            {item.quantity}
+                <div className="relative flex-1 min-h-0 md:overflow-visible">
+                    <div className="h-full overflow-y-auto md:overflow-visible flex flex-col gap-6 pr-1 pb-8 md:pb-0 no-scrollbar">
+                        {items.map((item) => (
+                            <div key={item.id} className="flex gap-4 items-center justify-between">
+                                <div className="flex gap-4 items-center flex-1 min-w-0">
+                                    {item.image ? (
+                                        <div className="relative w-[77px] h-[81px] shrink-0">
+                                            <Image
+                                                src={item.image}
+                                                alt={item.name}
+                                                fill
+                                                sizes="80px"
+                                                className="object-cover rounded-card"
+                                            />
                                         </div>
-                                        <button
-                                            type="button"
-                                            onClick={() => addItem({ ...item, quantity: 1 })}
-                                            className="w-[42px] h-full flex items-center justify-center text-muted-light font-rounds hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer select-none text-[17px] font-medium"
-                                        >
-                                            +
-                                        </button>
+                                    ) : (
+                                        <div className="w-[77px] h-[81px] bg-neutral-100 rounded-card flex items-center justify-center text-neutral-450 font-rounds font-bold text-lg shrink-0 select-none">
+                                            {item.name[0]}
+                                        </div>
+                                    )}
+
+                                    <div className="flex flex-col gap-2 min-w-0">
+                                        <span className="font-rounds font-semibold text-[15px] text-black truncate pr-2">
+                                            {item.name}
+                                        </span>
+
+                                        <div className="flex items-center h-[32px] rounded-xl border border-muted-light overflow-hidden w-[130px] shrink-0">
+                                            <button
+                                                type="button"
+                                                onClick={() => decrementItem(item.id)}
+                                                className="w-[42px] h-full flex items-center justify-center text-muted-light font-rounds hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer select-none text-[17px] font-medium"
+                                            >
+                                                –
+                                            </button>
+                                            <div className="flex-1 h-full border-x border-muted-light flex items-center justify-center font-rounds text-[15px] text-muted-light select-none">
+                                                {item.quantity}
+                                            </div>
+                                            <button
+                                                type="button"
+                                                onClick={() => addItem({ ...item, quantity: 1 })}
+                                                className="w-[42px] h-full flex items-center justify-center text-muted-light font-rounds hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer select-none text-[17px] font-medium"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div className="flex flex-col items-end justify-between h-[81px] py-1 shrink-0">
-                                <button
-                                    type="button"
-                                    onClick={() => removeItem(item.id)}
-                                    className="w-8 h-8 rounded-full border border-muted-light flex items-center justify-center text-muted-light hover:bg-neutral-50 hover:text-black transition-colors cursor-pointer"
-                                >
-                                    <X className="w-4 h-4 text-muted-light" />
-                                </button>
-                                <span className="font-rounds font-semibold text-[15px] text-black text-right whitespace-nowrap">
-                                    {item.price * item.quantity} {currency}
-                                </span>
+                                <div className="flex flex-col items-end justify-between h-[81px] py-1 shrink-0">
+                                    <button
+                                        type="button"
+                                        onClick={() => removeItem(item.id)}
+                                        className="w-8 h-8 rounded-full border border-muted-light flex items-center justify-center text-muted-light hover:bg-neutral-50 hover:text-black transition-colors cursor-pointer"
+                                    >
+                                        <X className="w-4 h-4 text-muted-light" />
+                                    </button>
+                                    <span className="font-rounds font-semibold text-[15px] text-black text-right whitespace-nowrap">
+                                        {item.price * item.quantity} {currency}
+                                    </span>
+                                </div>
                             </div>
+                        ))}
+                        <div className="flex flex-col items-end gap-1 py-4 font-rounds font-bold text-muted-light text-[15px] uppercase shrink-0 mt-4 md:hidden">
+                            <span>=</span>
+                            <span className="text-[15px]">
+                                {total} {currency}
+                            </span>
                         </div>
-                    ))}
-                    <div className="flex flex-col items-end gap-1 py-4 font-rounds font-bold text-muted-light text-[15px] uppercase shrink-0  mt-4">
-                        <span>=</span>
-                        <span className="text-[15px]">
-                            {total} {currency}
-                        </span>
                     </div>
+                    <div className="absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-white to-transparent pointer-events-none z-10 md:hidden" />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-white to-transparent pointer-events-none z-10" />
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5 shrink-0 bg-white pt-4">
+            <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-5 shrink-0 bg-white pt-4 w-full md:w-[400px] md:pt-8 md:border md:border-neutral-300 md:p-8 md:rounded-[26px] md:shadow-xs md:sticky md:top-28 md:h-fit"
+            >
+                <div className="hidden md:flex justify-between items-center pb-4 border-b border-neutral-100">
+                    <span className="font-rounds font-bold text-muted-light text-[13px] uppercase tracking-wide">
+                        Total de plată
+                    </span>
+                    <span className="font-rounds font-bold text-xl text-black">
+                        {total} {currency}
+                    </span>
+                </div>
+
                 <Input
                     id="name-input"
                     label="Nume"
@@ -200,12 +214,12 @@ export default function CartPage() {
                     </div>
                 )}
 
-                <Spacer size={4} />
+                <Spacer size={4} className="md:hidden" />
 
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full h-[48px] bg-black text-white rounded-[16px] flex items-center justify-center font-rounds font-semibold text-[15px] hover:bg-neutral-900 active:scale-[0.98] transition-all cursor-pointer disabled:bg-neutral-400 disabled:cursor-not-allowed disabled:scale-100"
+                    className="w-full h-[48px] bg-black text-white rounded-[16px] flex items-center justify-center font-rounds font-semibold text-[15px] hover:bg-neutral-900 active:scale-[0.98] transition-all cursor-pointer disabled:bg-neutral-400 disabled:cursor-not-allowed disabled:scale-100 mt-2"
                 >
                     {isSubmitting ? 'Se trimite...' : 'Comandă'}
                 </button>

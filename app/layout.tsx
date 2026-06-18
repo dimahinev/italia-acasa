@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
 import PageContainer from '@/shared/ui/layout/PageContainer';
 import SearchDrawer from '@/features/search/ui/SearchDrawer';
+import Header from '@/widgets/Header';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -173,6 +174,7 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} ${recoleta.variable} ${ttRoundsNeue.variable} h-full antialiased`}
         >
             <body className="min-h-full flex flex-col">
+                <Header />
                 <PageContainer>
                     {children}
                     <SearchDrawer />

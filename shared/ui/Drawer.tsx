@@ -36,17 +36,17 @@ const DrawerContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
     <DrawerPortal>
         <DrawerOverlay />
-        <DrawerPrimitive.Viewport className="fixed inset-0 z-40 flex items-end justify-center">
+        <DrawerPrimitive.Viewport className="fixed inset-0 z-40 flex items-end justify-center md:items-center">
             <DrawerPrimitive.Popup
                 ref={ref}
                 className={cn(
-                    'drawer-popup fixed inset-x-0 bottom-0 z-40 flex h-[82dvh] w-full flex-col rounded-t-[26px] bg-white border-t border-neutral-100 shadow-2xl focus:outline-none',
+                    'drawer-popup fixed inset-x-0 bottom-0 z-40 flex h-[82dvh] w-full flex-col rounded-t-[26px] bg-white border-t border-neutral-100 shadow-2xl focus:outline-none md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:inset-x-auto md:w-[480px] md:max-h-[85vh] md:h-[600px] md:rounded-[26px] md:border',
                     className,
                 )}
                 {...props}
             >
                 <DrawerPrimitive.Content className="flex flex-col h-full min-h-0 w-full">
-                    <div className="mx-auto mt-4 h-1.5 w-[62px] rounded-full bg-neutral-200 shrink-0" />
+                    <div className="mx-auto mt-4 h-1.5 w-[62px] rounded-full bg-neutral-200 shrink-0 md:hidden" />
                     {children}
                 </DrawerPrimitive.Content>
             </DrawerPrimitive.Popup>

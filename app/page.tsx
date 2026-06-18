@@ -21,20 +21,23 @@ export default async function HomePage() {
     const featuredProducts = products.filter((p) => p.featured);
 
     return (
-        <div className="pt-3 pb-10">
+        <div className="pt-3 md:pt-10 pb-10">
             {/* HEADER START */}
-            <div className="flex justify-between">
+            <div className="flex justify-between md:hidden">
                 <h1 className="text-[32px] font-recoleta font-medium">Produse Italiene</h1>
                 <Sidebar />
             </div>
             {/* HEADER END */}
 
-            <Spacer size={16} />
+            <Spacer size={16} className="md:hidden" />
 
             {/* FEATURED PRODUCTS START */}
             {featuredProducts.length > 0 && (
                 <>
-                    <HorizontalScroll gap={32}>
+                    <HorizontalScroll
+                        gap={32}
+                        className="md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-8 md:overflow-visible md:-mx-0 md:px-0"
+                    >
                         {featuredProducts.map((product) => (
                             <FeaturedCard
                                 key={product.id}
@@ -42,10 +45,11 @@ export default async function HomePage() {
                                 name={product.title}
                                 price={product.price}
                                 slug={product._sys.filename}
+                                className="w-[240px] md:w-full"
                             />
                         ))}
                     </HorizontalScroll>
-                    <Spacer size={38} />
+                    <Spacer size={72} />
                 </>
             )}
             {/* FEATURED PRODUCTS END */}
@@ -54,11 +58,14 @@ export default async function HomePage() {
                 <>
                     <h2
                         id="toothpaste"
-                        className="scroll-mt-6 text-[24px] font-recoleta font-medium mb-2.5"
+                        className="scroll-mt-24 text-[24px] md:text-[28px] font-recoleta font-medium mb-4"
                     >
                         Paste de dinți
                     </h2>
-                    <HorizontalScroll gap={16}>
+                    <HorizontalScroll
+                        gap={16}
+                        className="md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6 md:overflow-visible md:-mx-0 md:px-0"
+                    >
                         {toothpastes.map((product) => (
                             <ProductCard
                                 key={product.id}
@@ -66,6 +73,7 @@ export default async function HomePage() {
                                 name={product.title}
                                 price={product.price}
                                 slug={product._sys.filename}
+                                className="w-[162px] md:w-full"
                             />
                         ))}
                     </HorizontalScroll>
@@ -77,11 +85,14 @@ export default async function HomePage() {
                 <>
                     <h2
                         id="shampoo"
-                        className="scroll-mt-6 text-[24px] font-recoleta font-medium mb-2.5"
+                        className="scroll-mt-24 text-[24px] md:text-[28px] font-recoleta font-medium mb-4"
                     >
                         Șampoane
                     </h2>
-                    <HorizontalScroll gap={16}>
+                    <HorizontalScroll
+                        gap={16}
+                        className="md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6 md:overflow-visible md:-mx-0 md:px-0"
+                    >
                         {shampoos.map((product) => (
                             <ProductCard
                                 key={product.id}
@@ -89,6 +100,7 @@ export default async function HomePage() {
                                 name={product.title}
                                 price={product.price}
                                 slug={product._sys.filename}
+                                className="w-[162px] md:w-full"
                             />
                         ))}
                     </HorizontalScroll>
@@ -100,11 +112,14 @@ export default async function HomePage() {
                 <>
                     <h2
                         id="spray"
-                        className="scroll-mt-6 text-[24px] font-recoleta font-medium mb-2.5"
+                        className="scroll-mt-24 text-[24px] md:text-[28px] font-recoleta font-medium mb-4"
                     >
                         Balsamuri de păr
                     </h2>
-                    <HorizontalScroll gap={16}>
+                    <HorizontalScroll
+                        gap={16}
+                        className="md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6 md:overflow-visible md:-mx-0 md:px-0"
+                    >
                         {sprays.map((product) => (
                             <ProductCard
                                 key={product.id}
@@ -112,6 +127,7 @@ export default async function HomePage() {
                                 name={product.title}
                                 price={product.price}
                                 slug={product._sys.filename}
+                                className="w-[162px] md:w-full"
                             />
                         ))}
                     </HorizontalScroll>
@@ -123,11 +139,14 @@ export default async function HomePage() {
                 <>
                     <h2
                         id="mask"
-                        className="scroll-mt-6 text-[24px] font-recoleta font-medium mb-2.5"
+                        className="scroll-mt-24 text-[24px] md:text-[28px] font-recoleta font-medium mb-4"
                     >
                         Măști
                     </h2>
-                    <HorizontalScroll gap={16}>
+                    <HorizontalScroll
+                        gap={16}
+                        className="md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6 md:overflow-visible md:-mx-0 md:px-0"
+                    >
                         {masks.map((product) => (
                             <ProductCard
                                 key={product.id}
@@ -135,6 +154,7 @@ export default async function HomePage() {
                                 name={product.title}
                                 price={product.price}
                                 slug={product._sys.filename}
+                                className="w-[162px] md:w-full"
                             />
                         ))}
                     </HorizontalScroll>
@@ -142,7 +162,7 @@ export default async function HomePage() {
                 </>
             )}
 
-            <Dock />
+            <Dock className="md:hidden" />
         </div>
     );
 }

@@ -22,7 +22,7 @@ export function SuccessScreen() {
                 <DrawerContent className="px-6">
                     <div className="flex flex-col items-center justify-between h-full pt-8 pb-10 min-h-0">
                         <div className="flex flex-col items-center w-full">
-                            <div className="w-[280px] h-[280px] flex items-center justify-center overflow-hidden relative rounded-2xl mt-2">
+                            <div className="w-[278px] h-[280px] flex items-center justify-center overflow-hidden relative rounded-2xl mt-2">
                                 <video
                                     autoPlay
                                     loop
@@ -45,7 +45,7 @@ export function SuccessScreen() {
                             </DrawerDescription>
                         </div>
 
-                        <div className="w-[240px] mb-[92px] mt-auto">
+                        <div className="w-[240px] mb-[92px] mt-auto md:mt-10">
                             <Link
                                 href="/"
                                 className="w-full h-[54px] flex items-center justify-center border border-black rounded-[20px] font-rounds font-semibold text-base text-black bg-white hover:bg-neutral-50 active:scale-[0.98] transition-all cursor-pointer"

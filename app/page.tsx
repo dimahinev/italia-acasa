@@ -52,7 +52,7 @@ export default async function HomePage() {
 
             {toothpastes.length > 0 && (
                 <>
-                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Paste de dinți</h2>
+                    <h2 id="toothpaste" className="scroll-mt-6 text-[24px] font-recoleta font-medium mb-2.5">Paste de dinți</h2>
                     <HorizontalScroll gap={16}>
                         {toothpastes.map((product) => (
                             <ProductCard
@@ -70,7 +70,7 @@ export default async function HomePage() {
 
             {shampoos.length > 0 && (
                 <>
-                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Șampoane</h2>
+                    <h2 id="shampoo" className="scroll-mt-6 text-[24px] font-recoleta font-medium mb-2.5">Șampoane</h2>
                     <HorizontalScroll gap={16}>
                         {shampoos.map((product) => (
                             <ProductCard
@@ -88,7 +88,7 @@ export default async function HomePage() {
 
             {sprays.length > 0 && (
                 <>
-                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">
+                    <h2 id="spray" className="scroll-mt-6 text-[24px] font-recoleta font-medium mb-2.5">
                         Balsamuri de păr
                     </h2>
                     <HorizontalScroll gap={16}>
@@ -108,7 +108,7 @@ export default async function HomePage() {
 
             {masks.length > 0 && (
                 <>
-                    <h2 className="text-[24px] font-recoleta font-medium mb-2.5">Măști</h2>
+                    <h2 id="mask" className="scroll-mt-6 text-[24px] font-recoleta font-medium mb-2.5">Măști</h2>
                     <HorizontalScroll gap={16}>
                         {masks.map((product) => (
                             <ProductCard

@@ -6,6 +6,14 @@ import { SidebarIcon } from '@/shared/ui/icons/SidebarIcon';
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
 
+    const handleItemClick = (id: string) => {
+        setIsOpen(false);
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
             <button onClick={() => setIsOpen(true)} className="cursor-pointer">
@@ -46,14 +54,30 @@ export default function Sidebar() {
                 </button>
 
                 <div className="flex flex-col items-center justify-center h-full gap-[67px] font-rounds text-[17px] font-bold text-black text-center">
-                    <p className="cursor-pointer hover:opacity-75 transition-opacity">
+                    <button
+                        onClick={() => handleItemClick('toothpaste')}
+                        className="cursor-pointer hover:opacity-75 transition-opacity font-bold bg-transparent border-none outline-none"
+                    >
                         Paste de dinti
-                    </p>
-                    <p className="cursor-pointer hover:opacity-75 transition-opacity">Șampoane</p>
-                    <p className="cursor-pointer hover:opacity-75 transition-opacity">
+                    </button>
+                    <button
+                        onClick={() => handleItemClick('shampoo')}
+                        className="cursor-pointer hover:opacity-75 transition-opacity font-bold bg-transparent border-none outline-none"
+                    >
+                        Șampoane
+                    </button>
+                    <button
+                        onClick={() => handleItemClick('spray')}
+                        className="cursor-pointer hover:opacity-75 transition-opacity font-bold bg-transparent border-none outline-none"
+                    >
                         Balsamuri de păr
-                    </p>
-                    <p className="cursor-pointer hover:opacity-75 transition-opacity">Măști</p>
+                    </button>
+                    <button
+                        onClick={() => handleItemClick('mask')}
+                        className="cursor-pointer hover:opacity-75 transition-opacity font-bold bg-transparent border-none outline-none"
+                    >
+                        Măști
+                    </button>
                 </div>
             </div>
         </>

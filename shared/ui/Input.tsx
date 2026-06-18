@@ -11,11 +11,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             id || (label ? `${label.toLowerCase().replace(/\s+/g, '-')}-input` : undefined);
 
         return (
-            <div className="flex flex-col gap-2.5 group">
+            <div className="flex flex-col gap-1 group">
                 {label && (
                     <label
                         htmlFor={inputId}
-                        className="font-rounds font-bold text-[13px] text-muted-light group-focus-within:text-black uppercase tracking-wide transition-colors"
+                        className="font-rounds font-bold ml-[6px] text-[13px] text-muted-light group-focus-within:text-black uppercase tracking-wide transition-colors"
                     >
                         {label}
                     </label>

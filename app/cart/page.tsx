@@ -183,7 +183,7 @@ export default function CartPage() {
                 <div className="absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-white to-transparent pointer-events-none z-10" />
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-2 shrink-0 bg-white pt-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5 shrink-0 bg-white pt-4">
                 <Input
                     id="name-input"
                     label="Nume"
@@ -226,7 +226,7 @@ export default function CartPage() {
                     </div>
                 )}
 
-                <Spacer size={8} />
+                <Spacer size={4} />
 
                 <button
                     type="submit"

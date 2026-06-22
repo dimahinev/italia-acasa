@@ -67,7 +67,7 @@ export default function CartPage() {
     }
 
     return (
-        <div className="pt-4 pb-4 max-w-[600px] md:max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-16 w-full h-dvh md:h-auto md:py-10">
+        <div className="pt-4 pb-4 max-w-[600px] md:max-w-6xl mx-auto flex flex-col md:flex-row gap-0 md:gap-16 w-full h-dvh md:h-auto md:py-10">
             <div className="flex flex-col flex-1 min-h-0 md:min-h-auto md:overflow-visible">
                 <div className="flex items-center shrink-0">
                     <Link
@@ -155,14 +155,15 @@ export default function CartPage() {
                             </span>
                         </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-white to-transparent pointer-events-none z-10 md:hidden" />
                 </div>
             </div>
 
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-5 shrink-0 bg-white pt-4 w-full md:w-[400px] md:pt-8 md:border md:border-neutral-300 md:p-8 md:rounded-[26px] md:shadow-xs md:sticky md:top-28 md:h-fit"
+                className="flex z-10 relative flex-col gap-5 shrink-0 bg-white pt-2 w-full md:w-[400px] md:pt-8 md:border md:border-neutral-300 md:p-8 md:rounded-[26px] md:sticky md:top-28 md:h-fit"
             >
+                <div className="absolute top-[-38px] left-0 right-0 h-10 bg-linear-to-t from-white to-transparent pointer-events-none z-10 md:hidden" />
+
                 <div className="hidden md:flex justify-between items-center pb-4 border-b border-neutral-100">
                     <span className="font-rounds font-bold text-muted-light text-[13px] uppercase tracking-wide">
                         Total de plată

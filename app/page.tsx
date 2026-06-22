@@ -62,10 +62,7 @@ export default async function HomePage() {
                     >
                         Paste de dinți
                     </h2>
-                    <HorizontalScroll
-                        gap={16}
-                        className="md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6 md:overflow-visible md:-mx-0 md:px-0"
-                    >
+                    <HorizontalScroll className="gap-4 md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-10 md:overflow-visible md:-mx-0 md:px-0">
                         {toothpastes.map((product) => (
                             <ProductCard
                                 key={product.id}
@@ -89,10 +86,7 @@ export default async function HomePage() {
                     >
                         Șampoane
                     </h2>
-                    <HorizontalScroll
-                        gap={16}
-                        className="md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6 md:overflow-visible md:-mx-0 md:px-0"
-                    >
+                    <HorizontalScroll className="gap-4 md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-10 md:overflow-visible md:-mx-0 md:px-0">
                         {shampoos.map((product) => (
                             <ProductCard
                                 key={product.id}
@@ -116,10 +110,7 @@ export default async function HomePage() {
                     >
                         Balsamuri de păr
                     </h2>
-                    <HorizontalScroll
-                        gap={16}
-                        className="md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6 md:overflow-visible md:-mx-0 md:px-0"
-                    >
+                    <HorizontalScroll className="gap-4 md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-10 md:overflow-visible md:-mx-0 md:px-0">
                         {sprays.map((product) => (
                             <ProductCard
                                 key={product.id}
@@ -143,10 +134,7 @@ export default async function HomePage() {
                     >
                         Măști
                     </h2>
-                    <HorizontalScroll
-                        gap={16}
-                        className="md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6 md:overflow-visible md:-mx-0 md:px-0"
-                    >
+                    <HorizontalScroll className="gap-4 md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-10 md:overflow-visible md:-mx-0 md:px-0">
                         {masks.map((product) => (
                             <ProductCard
                                 key={product.id}

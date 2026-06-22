@@ -45,7 +45,7 @@ export default function Header() {
                     href="/"
                     className="font-recoleta font-semibold text-[26px] text-black tracking-tight active:scale-[0.98] transition-transform select-none"
                 >
-                    Italia acasa
+                    ItaliaAcasa
                 </Link>
 
                 {/* Navigation links */}

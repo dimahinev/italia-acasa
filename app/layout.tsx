@@ -159,8 +159,8 @@ const ttRoundsNeue = localFont({
 });
 
 export const metadata: Metadata = {
-    title: 'Italia a Casa | Итальянские Косметические Продукты',
-    description: 'Премиальная итальянская косметика для волос, тела и полости рта. Доставка на дом.',
+    title: 'Italia a Casa | Produse Cosmetice Italiene',
+    description: 'Cosmetice italiene premium pentru păr, corp și cavitatea bucală. Livrare la domiciliu.',
 };
 
 export default function RootLayout({
@@ -170,7 +170,7 @@ export default function RootLayout({
 }>) {
     return (
         <html
-            lang="en"
+            lang="ro"
             className={`${geistSans.variable} ${geistMono.variable} ${recoleta.variable} ${ttRoundsNeue.variable} h-full antialiased`}
         >
             <body className="min-h-full flex flex-col">

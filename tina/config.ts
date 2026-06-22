@@ -38,7 +38,7 @@ export default defineConfig({
                             return (values.title || '')
                                 .toLowerCase()
                                 .replace(/ /g, '-')
-                                .replace(/[^\w-]+/g, ''); // Оставляет только буквы, цифры и дефисы
+                                .replace(/[^\w-]+/g, '');
                         },
                     },
                 },

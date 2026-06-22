@@ -17,12 +17,12 @@ export async function shareLink() {
     } catch (error) {
         if (error instanceof Error) {
             if (error.name === 'AbortError') {
-                error = 'Вы закрыли меню обмена.';
+                error = 'Ați închis meniul de partajare.';
             } else {
-                error = 'Ошибка: ' + error.message;
+                error = 'Eroare: ' + error.message;
             }
         } else {
-            error = 'Произошла неизвестная ошибка';
+            error = 'A apărut o eroare necunoscută';
         }
     }
 

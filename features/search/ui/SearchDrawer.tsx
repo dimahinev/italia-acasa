@@ -69,7 +69,7 @@ export default function SearchDrawer() {
                                         className="flex gap-4 items-center group active:opacity-75 transition-opacity"
                                     >
                                         {product.images?.[0] ? (
-                                            <div className="relative w-[77px] h-[81px] shrink-0">
+                                            <div className="relative w-[77px] h-[81px] shrink-0 bg-neutral-100 rounded-card">
                                                 <Image
                                                     src={product.images[0]}
                                                     alt={product.title}
@@ -107,7 +107,7 @@ export default function SearchDrawer() {
                                     className="flex gap-4 items-center group active:opacity-75 transition-opacity"
                                 >
                                     {product.images?.[0] ? (
-                                        <div className="relative w-[77px] h-[81px] shrink-0">
+                                        <div className="relative w-[77px] h-[81px] shrink-0 bg-neutral-100 rounded-card">
                                             <Image
                                                 src={product.images[0]}
                                                 alt={product.title}

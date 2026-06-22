@@ -3,17 +3,19 @@ import Link from 'next/link';
 import { cn } from './lib/utils/cn';
 import { CardProps } from './types/cardProps';
 
-export default function ProductCard({ className, imgSrc, name, price, slug }: CardProps) {
+export default function ProductCard({ className, imgSrc, name, price, slug, blurDataURL }: CardProps) {
     const cardContent = (
         <div className={cn('w-[162px] cursor-pointer', className)}>
-            <div className="relative w-full h-[170px]">
+            <div className="relative w-full h-[170px] bg-neutral-100 rounded-card">
                 <Image
                     className="object-cover object-[center_80%] rounded-card"
                     src={imgSrc}
                     alt={name}
                     fill
-                    sizes="240px"
+                    sizes="(max-width: 768px) 162px, 220px"
                     priority
+                    placeholder={blurDataURL ? 'blur' : 'empty'}
+                    blurDataURL={blurDataURL}
                 />
             </div>
             <div className="px-[5px] mt-1">

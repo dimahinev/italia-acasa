@@ -1,5 +1,6 @@
 import { client } from '../../../tina/__generated__/client';
 import { ProductPageClient } from './client-page';
+import { getBlurDataURL } from '@/shared/lib/utils/getBlurDataURL';
 
 export async function generateStaticParams() {
     const productsConnection = await client.queries.productConnection();
@@ -16,5 +17,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         relativePath: `${slug}.mdx`,
     });
 
-    return <ProductPageClient {...result} />;
+    const images = (result.data.product.images ?? []).filter(
+        (img): img is string => typeof img === 'string',
+    );
+    const imageBlurMap = Object.fromEntries(
+        images.map((img) => [img, getBlurDataURL(img)] as const),
+    );
+
+    console.log('images', images);
+    console.log('imageBlurMap', imageBlurMap);
+
+    return <ProductPageClient {...result} imageBlurMap={imageBlurMap} />;
 }

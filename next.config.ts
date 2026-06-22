@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
             },
         ],
     },
+    serverExternalPackages: ['sharp'],
     devIndicators: false,
     allowedDevOrigins: ['shudder-unturned-slapping.ngrok-free.dev', '*.ngrok-free.dev'],
     async rewrites() {

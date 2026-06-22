@@ -4,4 +4,5 @@ export type CardProps = {
     name: string;
     price: number;
     slug?: string;
+    blurDataURL?: string;
 };

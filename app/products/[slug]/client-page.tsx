@@ -10,16 +10,18 @@ import { useCurrencyStore } from '@/features/currency/model/currencyStore';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { AddToCartButton } from '@/features/cart/ui/AddToCartButton';
 
-const ProductImage = ({ img, title }: { img: string; title: string }) => {
+const ProductImage = ({ img, title, blurDataURL }: { img: string; title: string; blurDataURL?: string }) => {
     return (
-        <div className="relative h-[306px] w-[264px] md:h-[480px] md:w-full md:max-w-[400px] shrink-0">
+        <div className="relative h-[306px] w-[264px] md:h-[480px] md:w-full md:max-w-[400px] shrink-0 bg-neutral-100 rounded-card">
             <Image
                 src={img}
                 alt={title}
                 fill
-                sizes="(max-width: 768px) 240px, 400px"
+                sizes="(max-width: 768px) 264px, 400px"
                 priority
                 className="object-cover object-[center_80%] rounded-card"
+                placeholder={blurDataURL ? 'blur' : 'empty'}
+                blurDataURL={blurDataURL}
             />
         </div>
     );
@@ -29,12 +31,14 @@ export function ProductPageClient(props: {
     query: string;
     variables: ProductQueryVariables;
     data: ProductQuery;
+    imageBlurMap?: Record<string, string | undefined>;
 }) {
     const { data } = useTina({
         query: props.query,
         variables: props.variables,
         data: props.data,
     });
+    const imageBlurMap = props.imageBlurMap ?? {};
     const { currency } = useCurrencyStore();
 
     const product = data.product;
@@ -53,7 +57,11 @@ export function ProductPageClient(props: {
                     {product.images?.[0] ? (
                         product.images?.length === 1 ? (
                             <div className="flex justify-center -mt-4 mb-2 md:mt-0 md:mb-0 md:justify-start">
-                                <ProductImage title={product.title} img={product.images[0]} />
+                                <ProductImage
+                                    title={product.title}
+                                    img={product.images[0]}
+                                    blurDataURL={imageBlurMap[product.images[0]]}
+                                />
                             </div>
                         ) : (
                             <>
@@ -61,14 +69,24 @@ export function ProductPageClient(props: {
                                     {product.images
                                         .filter((img: string | null): img is string => !!img)
                                         .map((img: string, i: number) => (
-                                            <ProductImage key={i} title={product.title} img={img} />
+                                            <ProductImage
+                                                key={i}
+                                                title={product.title}
+                                                img={img}
+                                                blurDataURL={imageBlurMap[img]}
+                                            />
                                         ))}
                                 </HorizontalScroll>
                                 <div className="hidden md:flex flex-col gap-6">
                                     {product.images
                                         .filter((img: string | null): img is string => !!img)
                                         .map((img: string, i: number) => (
-                                            <ProductImage key={i} title={product.title} img={img} />
+                                            <ProductImage
+                                                key={i}
+                                                title={product.title}
+                                                img={img}
+                                                blurDataURL={imageBlurMap[img]}
+                                            />
                                         ))}
                                 </div>
                             </>

@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { cn } from './lib/utils/cn';
 import { CardProps } from './types/cardProps';
 
-export default function FeaturedCard({ className, imgSrc, name, price, slug }: CardProps) {
+export default function FeaturedCard({ className, imgSrc, name, price, slug, blurDataURL }: CardProps) {
     const cardContent = (
         <div className={cn('w-[240px] cursor-pointer', className)}>
-            <div className="relative w-full h-[277px]">
+            <div className="relative w-full h-[277px] bg-neutral-100 rounded-card">
                 <Image
                     className="object-cover object-[center_80%] rounded-card"
                     src={imgSrc}
@@ -14,6 +14,8 @@ export default function FeaturedCard({ className, imgSrc, name, price, slug }: C
                     fill
                     sizes="240px"
                     priority
+                    placeholder={blurDataURL ? 'blur' : 'empty'}
+                    blurDataURL={blurDataURL}
                 />
             </div>
             <div className="flex justify-between mt-2 px-[5px]">

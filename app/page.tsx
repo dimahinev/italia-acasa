@@ -5,6 +5,7 @@ import Spacer from '@/shared/ui/Spacer';
 import Dock from '@/widgets/Dock';
 import Sidebar from '@/widgets/Sidebar';
 import { client } from '@/tina/__generated__/client';
+import { getBlurDataURL } from '@/shared/lib/utils/getBlurDataURL';
 
 export default async function HomePage() {
     const productsResponse = await client.queries.productConnection();
@@ -19,6 +20,12 @@ export default async function HomePage() {
     const masks = products.filter((p) => p.category === 'mask');
 
     const featuredProducts = products.filter((p) => p.featured);
+
+    const blurMap = Object.fromEntries(
+        products
+            .filter((p) => p.images?.[0])
+            .map((p) => [p.images![0] as string, getBlurDataURL(p.images![0] as string)] as const),
+    );
 
     return (
         <div className="pt-3 md:pt-10 pb-10">
@@ -46,6 +53,7 @@ export default async function HomePage() {
                                 price={product.price}
                                 slug={product._sys.filename}
                                 className="w-[240px] md:w-full"
+                                blurDataURL={blurMap[product.images?.[0] as string]}
                             />
                         ))}
                     </HorizontalScroll>
@@ -71,6 +79,7 @@ export default async function HomePage() {
                                 price={product.price}
                                 slug={product._sys.filename}
                                 className="w-[162px] md:w-full"
+                                blurDataURL={blurMap[product.images?.[0] as string]}
                             />
                         ))}
                     </HorizontalScroll>
@@ -95,6 +104,7 @@ export default async function HomePage() {
                                 price={product.price}
                                 slug={product._sys.filename}
                                 className="w-[162px] md:w-full"
+                                blurDataURL={blurMap[product.images?.[0] as string]}
                             />
                         ))}
                     </HorizontalScroll>
@@ -119,6 +129,7 @@ export default async function HomePage() {
                                 price={product.price}
                                 slug={product._sys.filename}
                                 className="w-[162px] md:w-full"
+                                blurDataURL={blurMap[product.images?.[0] as string]}
                             />
                         ))}
                     </HorizontalScroll>
@@ -143,6 +154,7 @@ export default async function HomePage() {
                                 price={product.price}
                                 slug={product._sys.filename}
                                 className="w-[162px] md:w-full"
+                                blurDataURL={blurMap[product.images?.[0] as string]}
                             />
                         ))}
                     </HorizontalScroll>

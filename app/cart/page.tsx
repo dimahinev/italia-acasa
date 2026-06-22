@@ -92,7 +92,7 @@ export default function CartPage() {
                             <div key={item.id} className="flex gap-4 items-center justify-between">
                                 <div className="flex gap-4 items-center flex-1 min-w-0">
                                     {item.image ? (
-                                        <div className="relative w-[77px] h-[81px] shrink-0">
+                                        <div className="relative w-[77px] h-[81px] shrink-0 bg-neutral-100 rounded-card">
                                             <Image
                                                 src={item.image}
                                                 alt={item.name}

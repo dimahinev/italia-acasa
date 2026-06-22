@@ -11,6 +11,13 @@ if (process.env.NODE_ENV === 'development') {
 const nextConfig: NextConfig = {
     images: {
         formats: ['image/avif', 'image/webp'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'assets.tina.io',
+                pathname: '/**',
+            },
+        ],
     },
     devIndicators: false,
     allowedDevOrigins: ['shudder-unturned-slapping.ngrok-free.dev', '*.ngrok-free.dev'],

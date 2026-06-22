@@ -24,8 +24,5 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         images.map((img) => [img, getBlurDataURL(img)] as const),
     );
 
-    console.log('images', images);
-    console.log('imageBlurMap', imageBlurMap);
-
     return <ProductPageClient {...result} imageBlurMap={imageBlurMap} />;
 }

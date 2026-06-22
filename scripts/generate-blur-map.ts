@@ -26,24 +26,27 @@ async function getImageURLs(): Promise<{ key: string; fetchUrl: string; localPat
     for (const file of files) {
         const content = fs.readFileSync(path.join(contentDir, file), 'utf-8');
 
-        // Match remote tina.io URLs (key = full URL)
+        // Match remote tina.io URLs — key uses normalized path after __file/
         const remoteMatches = content.matchAll(/https:\/\/assets\.tina\.io\/[^\s"'\n\]]+/g);
         for (const match of remoteMatches) {
             const url = match[0].trim();
-            if (url && !seen.has(url)) {
-                seen.add(url);
-                images.push({ key: url, fetchUrl: url });
+            const keyMatch = url.match(/__file\/(.+)$/);
+            const key = keyMatch ? keyMatch[1] : url;
+            if (!seen.has(key)) {
+                seen.add(key);
+                images.push({ key, fetchUrl: url });
             }
         }
 
-        // Match local /uploads/ paths — read directly from public/ folder
-        const localMatches = content.matchAll(/- (\/uploads\/[^\s"'\n]+)/g);
+        // Match local /uploads/ paths — key strips /uploads/ prefix, reads from public/
+        const localMatches = content.matchAll(/- (\/uploads\/([^\s"'\n]+))/g);
         for (const match of localMatches) {
             const localPath = match[1].trim();
-            if (!seen.has(localPath)) {
-                seen.add(localPath);
+            const key = match[2].trim(); // e.g. "toothpaste/7.jpg"
+            if (!seen.has(key)) {
+                seen.add(key);
                 const diskPath = path.join(process.cwd(), 'public', localPath);
-                images.push({ key: localPath, fetchUrl: '', localPath: diskPath });
+                images.push({ key, fetchUrl: '', localPath: diskPath });
             }
         }
     }

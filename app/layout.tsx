@@ -8,6 +8,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import './globals.css';
+import Script from 'next/script';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -160,7 +161,8 @@ const ttRoundsNeue = localFont({
 
 export const metadata: Metadata = {
     title: 'Italia a Casa | Produse Cosmetice Italiene',
-    description: 'Cosmetice italiene premium pentru păr, corp și cavitatea bucală. Livrare la domiciliu.',
+    description:
+        'Cosmetice italiene premium pentru păr, corp și cavitatea bucală. Livrare la domiciliu.',
 };
 
 export default function RootLayout({
@@ -173,6 +175,14 @@ export default function RootLayout({
             lang="ro"
             className={`${geistSans.variable} ${geistMono.variable} ${recoleta.variable} ${ttRoundsNeue.variable} h-full antialiased`}
         >
+            <head>
+                <Script
+                    data-website-id="dfid_sxYQFHlWYtgG6mNK8l1PM"
+                    data-domain="italia-acasa.vercel.app"
+                    src="https://datafa.st/js/script.js"
+                    strategy="afterInteractive"
+                />
+            </head>
             <body className="min-h-full flex flex-col">
                 <Header />
                 <PageContainer>
